@@ -1,5 +1,5 @@
 /*
-3Copyright by Michael Korneev 2015
+Copyright by Michael Korneev 2015
 */
 
 #include <time.h>

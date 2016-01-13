@@ -4,7 +4,15 @@
 ### Features
 
 * Reading ts-files on selected time and sending to UDP
+* 
+### Build
 
+Just run make in the project directory
+
+### How to use
+
+Run from command line: 
+./scheduler some.json
 
 ### Example of json
 <pre>

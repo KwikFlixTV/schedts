@@ -18,11 +18,16 @@ Run from command line:
 
 #### Parameters with no parents:
 
-* "file" - scheduler write to a file or send a udp stream
-* "ip", "port" - ip address and a port to send a udp stream
-* "bitrate" - the bitrate of the stream, it must be the same for every file
-* "cache size" - common cache size, you can use K to set the size in kilobytes and M in megabytes
-* "accumul" - size of filled cache part, you can use K to set the size in kilobytes and M in megabytes
+* "file" : "path to file" - scheduler write to a file or send a udp stream
+* "ip" : "ip" , "port" : port - ip address and a port to send a udp stream
+* "bitrate" : bitrate - the bitrate of the stream, it must be the same for every file
+* "cache size" : "size" - common cache size, you can use K to set the size in kilobytes and M in megabytes
+* "accumul" : "size" - size of filled cache part, you can use K to set the size in kilobytes and M in megabytes
+* "ttl" : "number" set ttl
+* "priority" : number - set the process/thread priority
+* "ts_in_udp" : number - the number of ts packets in one udp packet
+* "stream" : [items] - contains items of a schedule
+
 
 ### Example of json
 <pre>

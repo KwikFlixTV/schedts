@@ -14,6 +14,16 @@ Just run make in the project directory
 Run from command line: 
 ./scheduler some.json
 
+### Json format description:
+
+#### Parameters with no parents:
+
+* "file" - scheduler write to a file or send a udp stream
+* "ip", "port" - ip address and a port to send a udp stream
+* "bitrate" - the bitrate of the stream, it must be the same for every file
+* "cache size" - common cache size, you can use K to set the size in kilobytes and M in megabytes
+* "accumul" - size of filled cache part, you can use K to set the size in kilobytes and M in megabytes
+
 ### Example of json
 <pre>
 {
@@ -31,14 +41,9 @@ Run from command line:
      "file" : ["/ProjectsP/ts/swm.ts", "/ProjectsP/ts/gt.ts"],
      "shell_exec" : "ps -e",
      "schedule" : {
-       "repeat" : 1,
        "day of week" : ["Tue", "Sun"],
        "time" : ["12:26"],
        "month" : ["every"],
-       "except" : [
-          {"month" : [ "Jum", "Jul", "Aug"], "day" :  [ "5", "7", "18"]},
-          {"month" : [ "Sep", "Oct"], "day of week" :  ["Mon"]}
-       ]
       }
    },
    {
@@ -47,7 +52,6 @@ Run from command line:
      "end_ind" : 3,
      "digits" : 2,
      "schedule" : {
-       "repeat" : 1,
        "day" : ["5", "14"],
        "time" : ["15:01", "19:30"],
        "month" : ["Jan", "Nov"]

@@ -82,3 +82,13 @@ Run from command line:
 ]
 }
 </pre>
+
+### Contribution
+
+Code must be formatted with Artistic Style Utility: http://astyle.sourceforge.net/
+
+Astyle is command-line utility and you have to use such options to format:
+./astyle TimeItem.cpp TimeItem.h TimeStamp.cpp TimeStamp.h scheduler.cpp -p -c -xC110 -xe -k3 -A14
+
+We reject contributions that aren't being formatted with astyle.
+

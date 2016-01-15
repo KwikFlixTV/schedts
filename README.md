@@ -39,6 +39,13 @@ Run from command line:
 * "shell_file" : "path to file" - a file to be executed before file playing
 * "schedule" : {parameters} - a description of time when to play files
 
+#### Parameters with "schedule" parent:
+
+* "day of week" : [days of week] - the list of days of week when to play files
+* "day" : [dates] - the list of month days when to play files, it should be used instead of "day of week"
+* "month" : [months] - the list of months when to play files, you can use key work "every" to play every month
+* "year" : year - the year when to play fils, if the parameter is not defines, the scheduler play files every year
+
 ### Example of json
 <pre>
 {

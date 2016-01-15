@@ -46,6 +46,14 @@ Run from command line:
 * "month" : [months] - the list of months when to play files, you can use key work "every" to play every month
 * "year" : year - the year when to play fils, if the parameter is not defines, the scheduler play files every year
 
+### Reread configuration:
+
+You need to send SIGHUP signal to force the shedts to reread the json configuration. You may do from command-line:
+kill -1 pid
+You can get a process pid with:
+ps -e | grep schedts
+
+
 ### Example of json
 <pre>
 {

@@ -48,10 +48,10 @@ Run from command line:
 
 ### Reread configuration:
 
-You need to send SIGHUP signal to force the shedts to reread the json configuration. You may do from command-line:
-kill -1 pid
-You can get a process pid with:
-ps -e | grep schedts
+You need to send SIGHUP signal to force the shedts to reread the json configuration. You may do from command-line:<br>
+kill -1 pid<br>
+You can get a process pid with:<br>
+ps -e | grep schedts<br>
 
 
 ### Example of json

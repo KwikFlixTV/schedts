@@ -28,6 +28,16 @@ Run from command line:
 * "ts_in_udp" : number - the number of ts packets in one udp packet
 * "stream" : [items] - contains items of a schedule
 
+#### Parameters with "stream" parent:
+
+* "file" : [files] - the sequence of files to play, it must the sequence, even if we play one file, "file" is used for a sequence with files that have different names
+* "sequence" : [files] - the sequence of files to play, every file has a name concatenated with a number within a sequence
+* "start_ind" : index - the started number of the sequence to play
+* "end_ind" : index - the last number of the sequence to play
+* "digits" : number - the number of digits described the file position in the sequence
+* "shell_exec" : "shell command" - the shell's command to run before file playing
+* "shell_file" : "path to file" - a file to be executed before file playing
+* "schedule" : {parameters} - a description of time when to play files
 
 ### Example of json
 <pre>

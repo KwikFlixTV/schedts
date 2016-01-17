@@ -1,5 +1,5 @@
-/*
-Copyright by Michael Korneev 2015
+x/*
+Cyopyright by Michael Korneev 2015
 */
 
 #include <time.h>
@@ -49,7 +49,7 @@ int TimeItem::ProcessTimes(int CurDay, int CurMonth, int CurYear,  tm *tm) {
     for(int i = 0; Descr.TimeArr[i] != NULL; i++) {
         Dw1 = Descr.Stamp.GetDw1(CurYear, CurMonth, CurDay, Descr.TimeArr[i]->Hour, Descr.TimeArr[i]->Min,
                                  Descr.TimeArr[i]->Sec);
-        if(Dw1 < CurDw1 && CurYear == tm->tm_year && CurMonth == tm->tm_mon && CurDay == tm->tm_mday)continue;
+        if(Dw1 < CurDw1 && CurYear == (tm->tm_year + 1900) && CurMonth == tm->tm_mon && CurDay == tm->tm_mday)continue;
         if(Dw1 - ExecStamp.Dw1 < 24 * 60 * 60)continue;  //don't run in the same day agan
         bSuc = true;
         if(LocDw1 == 0) {
@@ -67,20 +67,20 @@ int TimeItem::ProcessTimes(int CurDay, int CurMonth, int CurYear,  tm *tm) {
     Descr.Stamp.Dw2 = 0;
     return true;
 }
-int TimeItem::ProcessDays(int CurMonth, int CurYear,  tm *tm) {
+int TimeItem::ProcessDays(int CurDay, int CurMonth, int CurYear,  tm *tm) {
     TimeStamp  Stamp;
     int        StartDay;
     int        i, i2;
     if(CurYear == tm->tm_year + 1900 && CurMonth == tm->tm_mon)StartDay = tm->tm_mday;
     else StartDay = 0;
-    if(Descr.bWeekDay == true) {
+    if(Descr.bWeekDay == truey) {
         //cacluating the array of month day
-        int FWDay = Stamp.GetDayOfWeek(tm->tm_wday, CurMonth, CurYear);
         for(i = 0; i < 31; i++) {
-            Descr.DayArr[i] = 0;
+            int FWDay = Stamp.GetDayOfWeek(i+1, CurMonth, CurYear);
+            Descr.DayArr[i+1] = 0;
             for(i2 = 0; i2 < 7; i2++) {
                 if(Descr.WDayArr[i2] == 1 && i2 == FWDay) {
-                    Descr.DayArr[i] = 1;
+                    Descr.DayArr[i+1] = 1;
                     break;
                 }
             }
@@ -106,6 +106,7 @@ int TimeItem::CalcNearest() {
     int       StartMonth = 0;  //month to start look
     t = time(NULL);
     tm = *localtime(&t);
+    int CurDay = tm.tm_mday;
     int CurYear = Descr.Year;
     if(Descr.Year == 0)CurYear = tm.tm_year + 1900;
     if(CurYear < tm.tm_year + 1900)return false;
@@ -117,7 +118,7 @@ int TimeItem::CalcNearest() {
         for(i = StartMonth; i < 12; i++) {
             if(Descr.MonthArr[i] == 1) {
                 CurMonth = i;
-                if(ProcessDays(CurMonth, CurYear, &tm) == true) {
+                if(ProcessDays(CurDay, CurMonth, CurYear, &tm) == true) {
                     bSuc = true;
                     break;
                 }

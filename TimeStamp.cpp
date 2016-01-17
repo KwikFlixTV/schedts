@@ -29,7 +29,7 @@ static const int N_DAYS_IN_LEAP_MONTH[] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 
 int TimeStamp::GetDayOfWeek(int Day, int Month, int Year) {
     tm timeStruct = {};
     timeStruct.tm_year = Year - 1900;
-    timeStruct.tm_mon = Month - 1;
+    timeStruct.tm_mon = Month ;
     timeStruct.tm_mday = Day;
     timeStruct.tm_hour = 12;    //  To avoid any doubts about summer time, etc.
     mktime(&timeStruct);

@@ -22,7 +22,7 @@ class TimeItem {
   private:
 
     int        ProcessTimes(int CurDay, int CurMonth, int CurYear,  tm *tm);
-    int        ProcessDays(int CurMonth, int CurYear,  tm *tm);
+    int        ProcessDays(int CurDay, int CurMonth, int CurYear,  tm *tm);
   public:
     TimeItem() {};
     ~TimeItem();
